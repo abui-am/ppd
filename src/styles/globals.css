@@ -1,0 +1,139 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+input:checked + div {
+  @apply border-blue-600;
+}
+input:checked + div svg {
+  @apply block;
+}
+
+@layer utilities {
+  .backdrop {
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* width */
+  ::-webkit-scrollbar {
+    width: 12px;
+    height: 12px;
+  }
+
+  /* Track */
+  ::-webkit-scrollbar-track {
+    border-radius: 100vh;
+    background: #edf2f700;
+  }
+
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 100vh;
+  }
+
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+  }
+  
+  #menu::-webkit-scrollbar-thumb:hover {
+    background: #3E4A5F;
+  }
+
+  #menu::-webkit-scrollbar-thumb {
+    background: #3E4A5F;
+    border-radius: 100vh;
+  }
+
+  #menu::-webkit-scrollbar-corner {
+    background: #3E4A5F;
+  }
+  
+}
+
+@layer components {
+  .modal-overlay {
+    background-color: rgba(0, 0, 0, 0.4);
+    inset: 0px;
+    position: fixed;
+  }
+
+  .table-themed .collapse {
+    width: 180px;
+  }
+
+  #arrow,
+  #arrow::before {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: inherit;
+  }
+
+  #arrow {
+    visibility: hidden;
+    background: white;
+  }
+
+  #arrow::before {
+    visibility: visible;
+    content: '';
+    transform: rotate(45deg);
+  }
+
+  #tooltip[data-popper-placement^='top'] > #arrow {
+    bottom: -4px;
+  }
+
+  #tooltip[data-popper-placement^='bottom'] > #arrow {
+    top: -4px;
+  }
+
+  #tooltip[data-popper-placement^='left'] > #arrow {
+    right: -4px;
+  }
+
+  #tooltip[data-popper-placement^='right'] > #arrow {
+    left: -4px;
+  }
+
+  /* OVERRIDE */
+
+  .customDatePickerWidth,
+  .customDatePickerWidth > div.react-datepicker-wrapper,
+  .customDatePickerWidth
+    > div
+    > div.react-datepicker__input-container
+    .customDatePickerWidth
+    > div
+    > div.react-datepicker__input-container
+    input {
+    width: 100%;
+  }
+
+  .ReactModal__Content {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 200ms ease-in-out;
+  }
+
+  .ReactModal__Content--after-open {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+
+  .ReactModal__Content--before-close {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+}
